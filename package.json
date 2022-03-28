@@ -1,0 +1,49 @@
+{
+  "name": "vite-demo1",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview",
+    "changelog": "conventional-changelog -p angular -n changelog-options.js -i docs/CHANGELOG.md -s",
+    "release": "node build/bin/version-updater.js --type project --r minor && npm run changelog && npm run tag && git push --tags",
+    "release:fix": "node build/bin/version-updater.js --type project --r patch && npm run changelog && npm run tag && git push --tags",
+    "prepare": "husky install",
+    "cz": "cz"
+  },
+  "dependencies": {
+    "@efox/emp-vuett": "^1.0.0",
+    "@xes/xes-business-lib": "^1.1.4",
+    "axios": "^0.21.1",
+    "js-cookie": "^3.0.0",
+    "vant": "^3.1.5",
+    "vue": "^3.0.5",
+    "vue-router": "^4.0.10",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@peiyou/postcss8-px-to-viewport": "0.0.2",
+    "@types/js-cookie": "^2.2.7",
+    "@types/node": "^16.4.5",
+    "@vitejs/plugin-legacy": "^1.5.0",
+    "@vitejs/plugin-vue": "^1.2.5",
+    "@vue/compiler-sfc": "^3.0.5",
+    "commitizen": "^4.2.4",
+    "conventional-changelog-cli": "^2.1.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^7.0.1",
+    "less": "^4.1.1",
+    "less-loader": "^10.0.1",
+    "typescript": "^4.3.2",
+    "vite": "^2.4.3",
+    "vite-plugin-style-import": "^1.1.0",
+    "vue-tsc": "^0.0.24"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
